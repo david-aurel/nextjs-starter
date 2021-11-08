@@ -1,0 +1,93 @@
+{
+  "extends": [
+    "standard-jsx",
+    "standard-react",
+    "standard-with-typescript",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@next/next/recommended",
+    "prettier"
+  ],
+  "plugins": ["react-hooks", "jsx-a11y", "jest"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "jsx-quotes": 0,
+    "react/prop-types": "off",
+    "no-void": "off",
+    "no-process-env": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-handler-names": "off",
+    "react/prefer-stateless-function": "error",
+    "react/sort-comp": "error",
+    "react/sort-prop-types": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "jsx-a11y/heading-has-content": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-anonymous-default-export": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "import/no-cycle": ["error", { "maxDepth": 2 }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/no-unassigned-import": [
+      "error",
+      {
+        "allow": ["**/*.css"]
+      }
+    ],
+    "import/newline-after-import": ["error"],
+    "import/no-useless-path-segments": [
+      "error",
+      {
+        "noUselessIndex": true
+      }
+    ],
+    "import/no-named-as-default": ["error"],
+    "import/no-named-as-default-member": ["error"],
+    "promise/prefer-await-to-then": "error",
+    "prefer-const": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Restore Cache
+        uses: actions/cache@v2
+        with:
+          path: "~/.npm"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: |
+          npm install -g npm@8
+          npm ci
+
+      - name: Validate Formatting
+        run: |
+          npm run format:check
+
+      - name: Validate Linting
+        run: |
+          npm run eslint
+
+      - name: Run Type Checks
+        run: |
+          npm run typescript
+
+      - name: Run Tests
+        run: |
+          npm test
